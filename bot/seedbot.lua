@@ -208,7 +208,7 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-    "onservice",
+     "onservice",
     "inrealm",
     "ingroup",
     "inpm",
@@ -224,6 +224,23 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
+    "Plugins",
+    "add-plugin",
+    "anti-bot-super",
+    "anti-flood-super",
+    "antilink",
+    "antiltag",
+    "calc",
+    "channels",
+    "emoji_lock",
+    "group-manager",
+    "info&setrank",
+    "kickall",
+    "locklink",
+    "on-of",
+    "setname",
+    "tosuper",
+    "upgrade",
     "admin"
     },
     sudo_users = {164918427,82970682,99399891,157178654,tonumber(our_id)},--Sudo users
