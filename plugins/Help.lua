@@ -4,7 +4,15 @@ function run(msg, matches)
 
 local mods = [[ 
 راهنما فارسی مدیران :
+!clean{member,modlist,rules}
 
+!lock flood
+
+!kickinactive
+
+!linkpv
+
+kill {Chat,Realm}
 
 !kick [Username | ID | Reply]
 
