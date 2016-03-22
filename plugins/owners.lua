@@ -23,7 +23,7 @@ local function unlock_group_namemod(msg, data, target)
     save_data(_config.moderation.data, data)
   return 'Group name has been unlocked'
   end
-end
+end--
 
 local function lock_group_floodmod(msg, data, target)
   local group_flood_lock = data[tostring(target)]['settings']['flood']
