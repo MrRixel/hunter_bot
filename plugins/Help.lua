@@ -145,7 +145,6 @@ member
  
  !calc [formula]
  
- !get [Value]
  
  !filterlist
  
@@ -154,22 +153,6 @@ member
  !id
  
  !me
- 
- !voice [MSG]
- 
- !time
- 
- !time [Area]
- 
- !tex [Msg]
- 
- !feedback [msg]
- 
- !share
- 
- !telemanagerplus
- 
- !sticker [TXT]
  ==========================
  جهت دریافت راهنمای رنک های دیگر میتوانید از دستورات زیر استفاده کنید :
  
