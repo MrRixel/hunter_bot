@@ -141,10 +141,11 @@ member
  local member = [[
  
  راهنمای فارسی عضو ها :
+ !mame
  
+ !koon
  
  !calc [formula]
- 
  
  !filterlist
  
@@ -153,6 +154,12 @@ member
  !id
  
  !me
+ 
+ !t2i (txt)
+ 
+ !بگو (message)
+ 
+ !chat with robot
  ==========================
  جهت دریافت راهنمای رنک های دیگر میتوانید از دستورات زیر استفاده کنید :
  
