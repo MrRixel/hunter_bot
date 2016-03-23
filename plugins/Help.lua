@@ -6,6 +6,8 @@ local mods = [[
 راهنما فارسی مدیران :
 !clean{member,modlist,rules}
 
+!setbotphoto
+
 !lock flood
 
 !kickinactive
@@ -186,7 +188,6 @@ member
  راهنما فارسی سودو ها :
  
  !spam
- 
  
  !addadmin [ID | Username]
  
