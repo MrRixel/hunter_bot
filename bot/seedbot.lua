@@ -248,7 +248,7 @@ function create_config( )
     "upgrade",
     "admin"
     },
-    sudo_users = {164918427,82970682,99399891,157178654,tonumber(our_id)},--Sudo users
+    sudo_users = {164918427,82970682,73047902,tonumber(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[Teleseed v2 - Open Source
