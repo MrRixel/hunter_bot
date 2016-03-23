@@ -158,6 +158,8 @@ member
  
  !id
  
+ !jomlak
+ 
  !me
  
  t2i (txt)
@@ -182,6 +184,8 @@ member
  local sudo = [[
  
  راهنما فارسی سودو ها :
+ 
+ !spam
  
  
  !addadmin [ID | Username]
