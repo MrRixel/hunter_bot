@@ -149,10 +149,7 @@ member
  local member = [[
  
  راهنمای فارسی عضو ها :
- !mame
- 
- !koon
- 
+
  !calc [formula]
  
  !filterlist
@@ -163,9 +160,9 @@ member
  
  !me
  
- !t2i (txt)
+ t2i (txt)
  
- !بگو (message)
+ بگو (message)
  
  !chat with robot
  ==========================
