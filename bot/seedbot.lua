@@ -245,8 +245,6 @@ function create_config( )
     "on-of",
     "supergroup",
     "setname",
-    "tosuper",
-    "upgrade",
     "admin"
     },
     sudo_users = {164918427,82970682,73047902,tonumber(our_id)},--Sudo users
