@@ -243,6 +243,7 @@ function create_config( )
     "kickall",
     "locklink",
     "on-of",
+    "supergroup",
     "setname",
     "tosuper",
     "upgrade",
