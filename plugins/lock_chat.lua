@@ -1,23 +1,34 @@
-local function run (msg, matches)
-local data = load_data(_config.moderation.data)
-   if matches[1] == 'chat_add_user_link' then
-        local user_id = msg.from.id
-        if data[tostring(msg.to.id)] then
-        if data[tostring(msg.to.id)]['settings'] then
-        if data[tostring(msg.to.id)]['settings']['lock_join'] == 'yes' then
-      kick_user(user_id, msg.to.id)
+
+local function run(msg, matches)
+if msg.to.type == 'chat' then
+    if is_momod(msg) then
+        return
     end
-   end
-end   
- end
+    local data = load_data(_config.moderation.data)
+    if data[tostring(msg.to.id)] then
+        if data[tostring(msg.to.id)]['settings'] then
+            if data[tostring(msg.to.id)]['settings']['lock_chat'] then
+                lock_chat = data[tostring(msg.to.id)]['settings']['lock_chat']
+            end
+        end
+    end
+    local chat = get_receiver(msg)
+    local user = "user#id"..msg.from.id
+    if lock_chat == "yes" then
+        chat_del_user(chat, user, ok_cb, true)
+    end
+end
  end
 return {
-   usage = {
-      "lock join: Nobody Can't Join Group Via Link.",
-      "unlock Join: User Can Join Group Via Link.",
-      },
+
   patterns = {
-    "^!!tgservice (chat_add_user_link)$"
+    "(.*)",
+    "%[(video)%]",
+    "%[(document)%]",
+    "%[(unsupported)%]",
+    "%[(audio)%]",
+    "%[(contact)%]",
+
   },
   run = run
 }
