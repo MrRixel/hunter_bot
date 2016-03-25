@@ -1,4 +1,4 @@
-
+-- data saved to data/moderation.json
 do
 
 local administrators_only = 'For administrator only!'
@@ -229,39 +229,39 @@ local function show_group_settings(msg, data)
   if not is_mod(msg) then return moderators_only end
   local settings = data[tostring(msg.to.id)]['settings']
   if settings.lock_bots == 'yes' then
-    lock_bots_state = 'Ù‹Úºâ€â€™'
+    lock_bots_state = 'ًں”’'
   elseif settings.lock_bots == 'no' then
-    lock_bots_state = 'Ù‹Úºâ€â€œ'
+    lock_bots_state = 'ًں”“'
   end
   if settings.lock_name == 'yes' then
-    lock_name_state = 'Ù‹Úºâ€â€™'
+    lock_name_state = 'ًں”’'
   elseif settings.lock_name == 'no' then
-    lock_name_state = 'Ù‹Úºâ€â€œ'
+    lock_name_state = 'ًں”“'
   end
   if settings.lock_photo == 'yes' then
-    lock_photo_state = 'Ù‹Úºâ€â€™'
+    lock_photo_state = 'ًں”’'
   elseif settings.lock_photo == 'no' then
-    lock_photo_state = 'Ù‹Úºâ€â€œ'
+    lock_photo_state = 'ًں”“'
   end
   if settings.lock_member == 'yes' then
-    lock_member_state = 'Ù‹Úºâ€â€™'
+    lock_member_state = 'ًں”’'
   elseif settings.lock_member == 'no' then
-    lock_member_state = 'Ù‹Úºâ€â€œ'
+    lock_member_state = 'ًں”“'
   end
   if settings.anti_flood ~= 'no' then
-    antiflood_state = 'Ù‹Úºâ€â€™'
+    antiflood_state = 'ًں”’'
   elseif settings.anti_flood == 'no' then
-    antiflood_state = 'Ù‹Úºâ€â€œ'
+    antiflood_state = 'ًں”“'
   end
   if settings.welcome ~= 'no' then
-    greeting_state = 'Ù‹Úºâ€â€™'
+    greeting_state = 'ًں”’'
   elseif settings.welcome == 'no' then
-    greeting_state = 'Ù‹Úºâ€â€œ'
+    greeting_state = 'ًں”“'
   end
   if settings.sticker ~= 'ok' then
-    sticker_state = 'Ù‹Úºâ€â€™'
+    sticker_state = 'ًں”’'
   elseif settings.sticker == 'ok' then
-    sticker_state = 'Ù‹Úºâ€â€œ'
+    sticker_state = 'ًں”“'
   end
   local text = 'Group settings:\n'
         ..'\n'..lock_bots_state..' Lock group from bot : '..settings.lock_bots
@@ -387,31 +387,36 @@ function run(msg, matches)
         return show_group_settings(msg, data)
 		  end
     end
-if not is_momod(msg) then
-	return "Mods Only!"
-	end
+
     if matches[1] == 'sticker' then
       if matches[2] == 'warn' then
+          if is_momod(msg) then
         if welcome_stat ~= 'warn' then
           data[tostring(msg.to.id)]['settings']['sticker'] = 'warn'
           save_data(_config.moderation.data, data)
         end
-        return '[Alredy Enabled]\nSticker Sender will be warned first, then kicked for second Sticker.'
+        
+        return 'فعال شد\nدر صورت ارسال استیکر،ابتدا اخطار داده شده\nدر صورت ارسال مجدد از گروه حذف خواهد شد'
+      end
       end
       if matches[2] == 'kick' then
+          if is_momod(msg) then
         if welcome_stat ~= 'kick' then
           data[tostring(msg.to.id)]['settings']['sticker'] = 'kick'
           save_data(_config.moderation.data, data)
         end
-        return '[Already Enabled]Sticker Sender will be kicked!'
+        return 'فعال شد!\nدر صورت ارسال استیکر،فرد ارسال کننده حذف خواهد شد'
+      end
       end
       if matches[2] == 'ok' then
+          if is_momod(msg) then
         if welcome_stat == 'ok' then
-          return '[Already Disabled]Nothing Will Happend If Sticker Sent!'
+          return 'قفل استیکر غیرفعال شد'
         else
           data[tostring(msg.to.id)]['settings']['sticker'] = 'ok'
           save_data(_config.moderation.data, data)
-          return 'Nothing Will Happend If Sticker Sent! '
+          return 'قفل استیکر غیر فعال میباشد '
+        end
         end
       end
     end
@@ -478,14 +483,14 @@ if not is_momod(msg) then
         if is_sticker_offender then
           chat_del_user(receiver, 'user#id'..user_id, ok_cb, true)
           redis:del(sticker_hash)
-          return '[Warned Before]Kicked Because You Have Sent Stickers'
+          return 'به دلیل ارسال استیکر از ادامه چت محروم میشوید'
         elseif not is_sticker_offender then
           redis:set(sticker_hash, true)
-          return ' Stop Sending Sticker.This Is A Warn Next Time You Will Kicked!'
+          return ' استیکر ارسال نکنید!\nاین یک اخطار میباشد\n\nدر صورت رعایت نکردن از گروه حذف خواهید شد'
         end
       elseif settings.sticker == 'kick' then
         chat_del_user(receiver, 'user#id'..user_id, ok_cb, true)
-        return 'You Kicked Because You Have Sent Stickers??'
+        return 'به دلیل استفاده از استیکر از گروه حذف میشوید'
       elseif settings.sticker == 'ok' then
         return nil
       end
@@ -576,5 +581,10 @@ return {
 
 end
 
---To Have This Update Lua-tg-c avaiable on tg folder
---Shared by @BlackHatchannel
+-- arman ino neveshte dg entezare bishtar azin nadashte bashid :|
+
+--namosan hal nadaram baqiasho hazf konam :|
+
+--hamino estefade konid okeye moshkeli nadare :|
+
+--negarane speed plug ham nabashid chon pattern ha bastas,okeye ;)
