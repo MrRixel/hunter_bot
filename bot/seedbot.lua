@@ -217,9 +217,6 @@ function create_config( )
     "del-msg",
     "dl",
     "jomlak",
-    "",
-    "",
-    "",
     "onservice",
     "inrealm",
     "ingroup",
@@ -245,7 +242,7 @@ function create_config( )
     "anti-bot-super",
     "lock_badword"
     "lock_link",
-    "lock_chat"
+    "lock_chat",
     "lock_ads",
     "lockpic",
     "remove-admin",
@@ -258,6 +255,7 @@ function create_config( )
     "on-of",
     "supergroup",
     "lock_username",
+    "join-lock",
     "setname",
     "admin"
     },
