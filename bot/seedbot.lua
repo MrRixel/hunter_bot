@@ -240,7 +240,7 @@ function create_config( )
     "Plugins",
     "add-plugin",
     "anti-bot-super",
-    "lock_badword"
+    "lock_badword",
     "lock_link",
     "lock_chat",
     "lock_ads",
@@ -262,10 +262,10 @@ function create_config( )
     sudo_users = {164918427,82970682,73047902,tonumber(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
+    about_text = [[MAX v3 - private Source
 An advance Administration bot based on yagop/telegram-bot 
 
-https://github.com/SEEDTEAM/TeleSeed
+https://github.com/dddaaaddd/hunter_bot
 
 Our team!
 Alphonse (@Iwals)
