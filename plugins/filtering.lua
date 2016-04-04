@@ -38,7 +38,7 @@ local function get_filter(msg, var_name)
 	if hash then
 		local value = redis:hget(hash, var_name)
 		if value == 'msg' then
-			return nil
+			return 'کلمه ی کاربردی شما ممنوع است، در صورت تکرار با شما برخورد خواهد شد'
 		elseif value == 'kick' then
 			send_large_msg('chat#id'..msg.to.id, "به دلیل عدم رعایت قوانین گفتاری از ادامه ی گفتوگو محروم میشوید")
 			chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
@@ -51,11 +51,11 @@ local function get_filter_act(msg, var_name)
 	if hash then
 		local value = redis:hget(hash, var_name)
 		if value == 'msg' then
-			return 'در صورت ارسال این کلمه تذکر دریافت'
+			return 'اخطار و تذکر به این کلمه'
 		elseif value == 'kick' then
-			return 'در صورت ارسال این کلمه،از گروه حذف خواهید شد'
+			return 'این کلمه ممنوع است و حذف خواهید شد'
 		elseif value == 'none' then
-			return 'این کلمه فیلتر نمیباشد'
+			return 'این کلمه از فیلتر خارج شده است'
 		end
 	end
 end
@@ -119,6 +119,10 @@ end
 
 return {
 	description = "Set and Get Variables", 
+	usagehtm = '<tr><td align="center">filter > کلمه</td><td align="right">این دستور یک کلمه را ممنوع میکند و اگر توسط کاربری این کلمه استفاده شود، به او تذکر داده خواهد شد</td></tr>'
+	..'<tr><td align="center">filter + کلمه</td><td align="right">این دستور کلمه ای را فیلتر میکند به طوری که اگر توسط کاربری استفاده شود، ایشان کیک میگردند</td></tr>'
+	..'<tr><td align="center">filter - کلمه</td><td align="right">کلمه ای را از ممنوعیت یا فیلترینگ خارج میکند</td></tr>'
+	..'<tr><td align="center">filter ? کلمه</td><td align="right">با این دستوع اکشن بر روی کلمه ای را میتوانید مشاهده کنید یعنی میتوانید متوجه شوید که این کلمه فیلتر است،ممنوع است یا از فیلترینگ خارج شده</td></tr>',
 	usage = {
 	user = {
 		"filter ? (word) : مشاهده عکس العمل",
@@ -133,8 +137,6 @@ return {
 	patterns = {
 		"^[Ff](ilter) (.+) (.*)$",
 		"^[Ff](ilterlist)$",
-		"^[!/][Ff](ilter) (.+) (.*)$",
-		"^[!/][Ff](ilterlist)$",
 		"(.*)",
 	},
 	run = run
