@@ -259,7 +259,7 @@ function create_config( )
     "setname",
     "admin"
     },
-    sudo_users = {164918427,82970682,112914190,tonumber(our_id)},--Sudo users
+    sudo_users = {164918427,82970682,112914190,86564764,tonumber(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[MAX v3 - private Source
